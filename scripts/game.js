@@ -6,10 +6,22 @@ let game = {
     playerMoves: [],
     choices: ["button1", "button2", "button3", "button4"],
 }
-module.exports = { game };
+
 // newGame ()
+function newGame () {
+    game.score = 0;
+    game.playerMoves = [];
+    game.currentGame = [];
+    showScore();
+}
+
 // addTurns ()
 // showTurns ()
 // lightsOn()
 // playerTurns()
-// showSquare ()
+// showScore ()
+function showScore () {
+    document.getElementById("score").innerText = game.score;
+}
+
+module.exports = { game, newGame, showScore };
