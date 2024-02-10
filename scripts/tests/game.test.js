@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { game, newGame, showScore } = require("../game");
+const { game, newGame, showScore, addTurn } = require("../game");
 
 
 // creating a mock dom
@@ -49,8 +49,8 @@ describe("newGame works correctly", () => {
     test("clear the playerMoves array", () => {
         expect(game.playerMoves.length).toEqual(0);
     });
-    test("clear the currentGame array", () => {
-        expect(game.currentGame.length).toEqual(0);
+    test("should be one move in the computer's game array", () => {
+        expect(game.currentGame.length).toEqual(1);
     });
     test("should display 0 for the element id of score", () =>{
         expect(document.getElementById("score").innerText).toEqual(0);

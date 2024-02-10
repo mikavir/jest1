@@ -13,9 +13,15 @@ function newGame () {
     game.playerMoves = [];
     game.currentGame = [];
     showScore();
+    addTurn();
 }
 
-// addTurns ()
+// addTurns () 1) clear playerMoves, 2)randomly add a buttonID to current game array 3) call shoowTurns
+function addTurn() {
+    game.playerMoves = [];
+    game.currentGame.push(game.choices[(Math.floor(Math.random)* 4)]);
+    //showTurns()
+}
 // showTurns ()
 // lightsOn()
 // playerTurns()
@@ -24,4 +30,4 @@ function showScore () {
     document.getElementById("score").innerText = game.score;
 }
 
-module.exports = { game, newGame, showScore };
+module.exports = { game, newGame, showScore, addTurn };
