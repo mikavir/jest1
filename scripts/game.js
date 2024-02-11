@@ -110,6 +110,9 @@ function playerTurn() {
             showScore();
             addTurn();
         }
+    } else {
+        alert("Wrong Move!");
+        newGame();
     }
 }
 
