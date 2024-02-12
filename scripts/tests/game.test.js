@@ -35,7 +35,15 @@ describe("game object contains correct keys",() =>{
     test("choices contains correct id's", () => {
         expect(game.choices).toEqual(["button1", "button2", "button3", "button4"]);
     });
-    
+    test("lastButton key exists", () => {
+        expect("lastButton" in game).toBe(true);
+    });
+    test("turnInProgress key exists", () => {
+        expect("turnInProgress" in game).toBe(true);
+    });
+    test("turnInProgress key value should is false", () => {
+        expect("turnInProgress" in game).toBe(true);
+    });
 });
 
 // newGame() => 1) reset score to 3, 2) clear playerMoves array, 3) clear current game array
@@ -104,4 +112,16 @@ describe("gameplay works correctly", () => {
         playerTurn();
         expect(window.alert).toBeCalledWith("Wrong Move!");
     });
+    test("should toggle turnInProgress to true", () => {
+        showTurns();
+        expect(game.turnInProgress).toBe(true);
+    });
+    test("clicking during computer sequence should fail", () => {
+        showTurns();
+        game.lastButton = "";
+        document.getElementById("button2").click();
+        expect(game.lastButton).toEqual("");
+
+    });
+
 });
